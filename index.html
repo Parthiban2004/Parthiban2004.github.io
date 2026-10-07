@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parthiban — Software Engineer</title>
+  <meta name="description" content="Parthiban — Software Engineer and Cloud Data Engineer at Accenture, building with AI, data and the cloud." />
+  <meta name="theme-color" content="#08080a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2308080a'/><text x='50' y='68' font-size='56' font-family='monospace' font-weight='700' text-anchor='middle' fill='%237cf5ff'>P</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__name">
+      <span>P</span><span>A</span><span>R</span><span>T</span><span>H</span><span>I</span><span>B</span><span>A</span><span>N</span>
+    </div>
+    <div class="loader__bar"><i></i></div>
+    <div class="loader__count mono"><span id="loaderCount">0</span>%</div>
+  </div>
+
+  <!-- Background layers -->
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="glows" aria-hidden="true"><div class="glow glow--1"></div><div class="glow glow--2"></div></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a href="#home" class="nav__logo" data-magnetic>
+      <span class="mono">P</span><em>.</em>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#home" class="active"><span class="mono">01</span>Home</a>
+      <a href="#about"><span class="mono">02</span>About</a>
+      <a href="#skills"><span class="mono">03</span>Skills</a>
+      <a href="#work"><span class="mono">04</span>Work</a>
+      <a href="#certs"><span class="mono">05</span>Certs</a>
+      <a href="#contact"><span class="mono">06</span>Contact</a>
+      <span class="nav__indicator" id="navIndicator"></span>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero__inner">
+        <p class="eyebrow mono reveal"><span class="pulse"></span> Cloud Data Engineer @ Accenture</p>
+        <h1 class="hero__title" aria-label="Parthiban">
+          <span class="line"><span class="glitch" data-text="PARTHIBAN" id="heroName">PARTHIBAN</span></span>
+        </h1>
+        <p class="hero__role reveal">
+          <span class="mono accent">&gt;</span>
+          <span id="typed">Software Engineer</span><span class="caret">_</span>
+        </p>
+        <p class="hero__sub reveal">
+          I build across <span class="hl">cloud</span>, <span class="hl">data</span> and <span class="hl">AI</span> —
+          from deep-learning models to real-time platforms.
+        </p>
+        <div class="hero__cta reveal">
+          <a href="#work" class="btn btn--primary float" data-magnetic>
+            <span>View my work</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/g-parthiban-97a612252" target="_blank" rel="noopener" class="btn btn--ghost float float--delay" data-magnetic>
+            <span>Connect on LinkedIn</span>
+          </a>
+        </div>
+        <div class="hero__stats reveal">
+          <div><b><span data-count="3">0</span></b><span class="mono">AI / ML projects</span></div>
+          <div><b><span data-count="87">0</span>%</b><span class="mono">model accuracy</span></div>
+          <div><b><span data-count="7">0</span></b><span class="mono">certifications</span></div>
+        </div>
+      </div>
+
+      <div class="orb" aria-hidden="true">
+        <div class="orb__ring r1"><i></i></div>
+        <div class="orb__ring r2"><i></i></div>
+        <div class="orb__ring r3"><i></i></div>
+        <div class="orb__core"></div>
+        <span class="orb__tag mono t1">Python</span>
+        <span class="orb__tag mono t2">GCP</span>
+        <span class="orb__tag mono t3">ML</span>
+        <span class="orb__tag mono t4">SQL</span>
+      </div>
+
+      <a href="#about" class="scroll-hint mono" aria-label="Scroll to about">
+        <span>scroll</span><i></i>
+      </a>
+    </section>
+
+    <!-- Marquee: two crossing bands that speed up with scroll -->
+    <div class="bands" aria-hidden="true">
+      <div class="band band--a"><div class="band__track" data-dir="-1">
+        <span>Software Engineering</span><b>✦</b><span>Cloud Data</span><b>✦</b><span>Machine Learning</span><b>✦</b><span>Generative AI</span><b>✦</b><span>Python</span><b>✦</b>
+      </div></div>
+      <div class="band band--b"><div class="band__track" data-dir="1">
+        <span>Google Cloud</span><b>◆</b><span>Django</span><b>◆</b><span>Node.js</span><b>◆</b><span>MongoDB</span><b>◆</b><span>Power BI</span><b>◆</b><span>SQL</span><b>◆</b>
+      </div></div>
+    </div>
+
+    <!-- ABOUT + EXPERIENCE -->
+    <section class="section" id="about">
+      <div class="section__head reveal">
+        <span class="mono accent">02 /</span>
+        <h2 data-scramble>About</h2>
+        <span class="section__ghost" aria-hidden="true">02</span>
+      </div>
+      <div class="about">
+        <div class="about__text">
+          <p class="lead" data-words>
+            I'm Parthiban — a software engineer working as a Cloud Data Engineer at Accenture.
+            I build across data, cloud and AI: from deep-learning models that pull a song apart
+            into stems, to platforms that give coders instant AI feedback.
+          </p>
+          <div class="about__pills reveal">
+            <span class="pill"><i class="pill__dot"></i>Data pipelines</span>
+            <span class="pill"><i class="pill__dot"></i>Machine learning</span>
+            <span class="pill"><i class="pill__dot"></i>Full-stack apps</span>
+          </div>
+        </div>
+
+        <article class="xp reveal" data-tilt>
+          <div class="xp__border" aria-hidden="true"></div>
+          <div class="xp__top">
+            <div class="xp__logo mono" aria-hidden="true">A<em>&gt;</em></div>
+            <span class="xp__badge mono"><span class="pulse"></span> Current role</span>
+          </div>
+          <h3>Cloud Data Engineer</h3>
+          <p class="xp__org">Accenture</p>
+          <div class="xp__flow" aria-hidden="true">
+            <span class="xp__node mono"><i>⇣</i>Ingest</span>
+            <span class="xp__pipe"><i></i><i></i></span>
+            <span class="xp__node mono"><i>⚙</i>Transform</span>
+            <span class="xp__pipe"><i></i><i></i></span>
+            <span class="xp__node mono"><i>◎</i>Insight</span>
+          </div>
+          <p class="xp__desc">Designing and maintaining cloud data pipelines that move, transform and deliver data at scale.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section__head reveal">
+        <span class="mono accent">03 /</span>
+        <h2 data-scramble>Skills</h2>
+        <span class="section__ghost" aria-hidden="true">03</span>
+      </div>
+      <div class="skillset">
+        <div class="srow reveal" data-spot>
+          <span class="srow__icon mono" aria-hidden="true">&lt;/&gt;</span>
+          <h3>Languages</h3>
+          <ul class="chips"><li>Python</li><li>C</li><li>SQL</li><li>HTML / CSS</li></ul>
+          <span class="srow__count mono" aria-hidden="true">04</span>
+        </div>
+        <div class="srow reveal" data-spot>
+          <span class="srow__icon mono" aria-hidden="true">☁</span>
+          <h3>Cloud &amp; Tools</h3>
+          <ul class="chips"><li>Google Cloud</li><li>Git</li><li>Anaconda</li><li>VS Code</li><li>PyCharm</li></ul>
+          <span class="srow__count mono" aria-hidden="true">05</span>
+        </div>
+        <div class="srow reveal" data-spot>
+          <span class="srow__icon mono" aria-hidden="true">{ }</span>
+          <h3>Frameworks &amp; DB</h3>
+          <ul class="chips"><li>Node.js</li><li>Django</li><li>MongoDB</li></ul>
+          <span class="srow__count mono" aria-hidden="true">03</span>
+        </div>
+        <div class="srow reveal" data-spot>
+          <span class="srow__icon mono" aria-hidden="true">∑</span>
+          <h3>Data &amp; ML</h3>
+          <ul class="chips"><li>Scikit-Learn</li><li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>Power BI</li><li>Tableau</li></ul>
+          <span class="srow__count mono" aria-hidden="true">06</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK: sticky stacking cards -->
+    <section class="section" id="work">
+      <div class="section__head reveal">
+        <span class="mono accent">04 /</span>
+        <h2 data-scramble>Projects</h2>
+        <span class="section__ghost" aria-hidden="true">04</span>
+      </div>
+      <div class="projects">
+        <!-- Stem separation -->
+        <div class="stack">
+          <article class="project" data-spot>
+            <div class="project__visual" aria-hidden="true">
+              <span class="project__num mono">01</span>
+              <div class="stems">
+                <div class="stem"><span class="mono">vocals</span><div class="bars"></div></div>
+                <div class="stem"><span class="mono">drums</span><div class="bars"></div></div>
+                <div class="stem"><span class="mono">bass</span><div class="bars"></div></div>
+                <div class="stem"><span class="mono">other</span><div class="bars"></div></div>
+              </div>
+            </div>
+            <div class="project__body">
+              <div class="project__meta mono">Deep Learning · Audio</div>
+              <h3>Stem Separation in Music using AI</h3>
+              <p>A deep-learning model that splits a song into vocals, drums, bass and accompaniment, with single-track and batch processing.</p>
+              <div class="metrics">
+                <div><b class="accent">~20%</b><span class="mono">better isolation</span></div>
+                <div><b class="accent">30–50%</b><span class="mono">faster output</span></div>
+                <div><b class="accent">40+</b><span class="mono">samples tested</span></div>
+              </div>
+              <ul class="chips"><li>Python</li><li>MATLAB</li><li>Deep Learning</li></ul>
+              <a href="https://github.com/Parthiban2004/Stem-Separation-in-Music-using-AI" target="_blank" rel="noopener" class="link-arrow" data-magnetic>View on GitHub <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Coding platform -->
+        <div class="stack">
+          <article class="project" data-spot>
+            <div class="project__visual" aria-hidden="true">
+              <span class="project__num mono">02</span>
+              <div class="editor mono">
+                <div class="editor__bar"><i></i><i></i><i></i><span>main.py</span></div>
+                <div class="editor__body">
+                  <div class="ln"><em>1</em><span class="k">def</span> <span class="f">total</span>(nums):</div>
+                  <div class="ln"><em>2</em>&nbsp;&nbsp;s = 0</div>
+                  <div class="ln"><em>3</em>&nbsp;&nbsp;<span class="k">for</span> n <span class="k">in</span> nums</div>
+                  <div class="ln"><em>4</em>&nbsp;&nbsp;&nbsp;&nbsp;s += n</div>
+                  <div class="ln"><em>5</em>&nbsp;&nbsp;<span class="k">return</span> s</div>
+                </div>
+                <div class="editor__ai"><b>AI</b> Missing ':' on line 3</div>
+              </div>
+            </div>
+            <div class="project__body">
+              <div class="project__meta mono">Full Stack · AI</div>
+              <h3>Interactive Coding Platform with Real-time AI Feedback</h3>
+              <p>A coding platform that catches syntax and logic errors instantly and recommends what to practise next.</p>
+              <div class="metrics">
+                <div><b class="accent">~30%</b><span class="mono">faster solving</span></div>
+                <div><b class="accent">~25%</b><span class="mono">better learning</span></div>
+              </div>
+              <ul class="chips"><li>Python</li><li>Code Analysis</li><li>Recommendations</li></ul>
+              <a href="https://github.com/Parthiban2004/Interactive-coding-platform-with-realtime-AI-Feedback" target="_blank" rel="noopener" class="link-arrow" data-magnetic>View on GitHub <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Cardio -->
+        <div class="stack">
+          <article class="project" data-spot>
+            <div class="project__visual viz-heart" aria-hidden="true">
+              <span class="project__num mono">03</span>
+              <svg class="ecg" viewBox="0 0 400 120" preserveAspectRatio="none">
+                <path d="M0 60 H90 L105 60 L115 30 L128 95 L140 12 L152 78 L160 60 H230 L245 60 L255 30 L268 95 L280 12 L292 78 L300 60 H400" />
+              </svg>
+              <div class="gauge">
+                <svg viewBox="0 0 120 120">
+                  <circle cx="60" cy="60" r="50" class="gauge__track" />
+                  <circle cx="60" cy="60" r="50" class="gauge__fill" />
+                </svg>
+                <div class="gauge__label"><b><span data-count="87">0</span>%</b><span class="mono">accuracy</span></div>
+              </div>
+            </div>
+            <div class="project__body">
+              <div class="project__meta mono">Machine Learning · Healthcare</div>
+              <h3>Predictive Analytics in Cardiovascular Disease</h3>
+              <p>Logistic regression and random forest models that predict cardiovascular risk, evaluated with ROC-AUC and precision.</p>
+              <div class="metrics">
+                <div><b class="accent">87%</b><span class="mono">accuracy</span></div>
+                <div><b class="accent">20+</b><span class="mono">experiments</span></div>
+              </div>
+              <ul class="chips"><li>Machine Learning</li><li>MATLAB</li><li>ROC-AUC</li></ul>
+              <a href="https://github.com/Parthiban2004/Predictive-Analysis-in-Cardiovascular-Disease" target="_blank" rel="noopener" class="link-arrow" data-magnetic>View on GitHub <span>→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certs">
+      <div class="section__head reveal">
+        <span class="mono accent">05 /</span>
+        <h2 data-scramble>Certifications</h2>
+        <span class="section__ghost" aria-hidden="true">05</span>
+      </div>
+      <div class="certs">
+        <div class="cert reveal" data-tilt>
+          <div class="cert__seal mono" aria-hidden="true">ML</div>
+          <span class="cert__issuer mono">Stanford · AI</span>
+          <h3>Supervised Machine Learning</h3>
+        </div>
+        <div class="cert reveal" data-tilt>
+          <div class="cert__seal mono" aria-hidden="true">ML+</div>
+          <span class="cert__issuer mono">Stanford · AI</span>
+          <h3>Advanced Machine Learning</h3>
+        </div>
+        <div class="cert reveal" data-tilt>
+          <div class="cert__seal mono" aria-hidden="true">AI</div>
+          <span class="cert__issuer mono">Microsoft · Oracle</span>
+          <h3>Generative AI</h3>
+        </div>
+        <div class="cert reveal" data-tilt>
+          <div class="cert__seal mono" aria-hidden="true">OCI</div>
+          <span class="cert__issuer mono">Oracle</span>
+          <h3>Cloud Infrastructure</h3>
+        </div>
+        <div class="cert reveal" data-tilt>
+          <div class="cert__seal mono" aria-hidden="true">DB</div>
+          <span class="cert__issuer mono">Databricks</span>
+          <h3>Generative AI</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="section__head reveal">
+        <span class="mono accent">06 /</span>
+        <h2 data-scramble>Contact</h2>
+      </div>
+      <div class="contact__grid">
+        <h3 class="contact__title" data-words>Let's build something remarkable together.</h3>
+        <a href="https://www.linkedin.com/in/g-parthiban-97a612252" target="_blank" rel="noopener" class="contact__orb reveal" data-magnetic aria-label="Connect on LinkedIn">
+          <svg class="contact__ring" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="ringPath" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+            <text><textPath href="#ringPath" textLength="484" lengthAdjust="spacing">LET'S CONNECT • LINKEDIN • LET'S CONNECT • LINKEDIN •</textPath></text>
+          </svg>
+          <span class="contact__core">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="socials reveal">
+        <a href="https://www.linkedin.com/in/g-parthiban-97a612252" target="_blank" rel="noopener" class="social-link" data-magnetic>LinkedIn <span>↗</span></a>
+        <a href="https://github.com/Parthiban2004" target="_blank" rel="noopener" class="social-link" data-magnetic>GitHub <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__name" id="footerName" aria-hidden="true">PARTHIBAN</div>
+    <div class="footer__row mono">
+      <span>© <span id="year"></span> Parthiban</span>
+      <span>Software Engineer <span class="accent">·</span> Cloud &amp; Data</span>
+    </div>
+  </footer>
+
+  <!-- Floating action dock -->
+  <div class="fab-dock" id="fabDock">
+    <a href="https://www.linkedin.com/in/g-parthiban-97a612252" target="_blank" rel="noopener" class="fab" data-magnetic aria-label="LinkedIn profile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      <span class="fab__tip mono">LinkedIn</span>
+    </a>
+    <a href="https://github.com/Parthiban2004" target="_blank" rel="noopener" class="fab" data-magnetic aria-label="GitHub profile">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      <span class="fab__tip mono">GitHub</span>
+    </a>
+    <button class="fab fab--top" id="toTop" data-magnetic aria-label="Back to top">
+      <svg class="fab__ring" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="24" /></svg>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+      <span class="fab__tip mono">Top</span>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
